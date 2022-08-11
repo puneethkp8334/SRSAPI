@@ -1,0 +1,44 @@
+pipeline {
+agent {label 'Slave-Node'}
+
+stages {
+    stage('Clone repo') {
+        steps {
+            // Clones the repository 
+                 echo 'Make the output directory'
+                 sh 'mkdir -p build'
+                  dir('build') {
+                 sh '''
+                     #!/bin/bash
+                      rm -rf SRSAPI
+                    git clone https://github.com/puneethkp8334/SRSAPI.git
+                   '''
+              }
+                 
+                }
+    }
+
+    stage('run docker copose file') {
+          steps {
+                dir('build') {
+                 sh '''
+                     #!/bin/bash
+                       cd /home/ubuntu/workspace/SRS/build/SRSAPI
+                       ls
+                        docker-compose stop
+                        docker-compose up --build -d
+                   '''
+                }
+          }
+         }
+    stage('Check docker running') {
+          steps {
+                 sh '''
+                     #!/bin/bash
+                      
+                        docker ps
+                   '''
+                }
+         }     
+}
+}

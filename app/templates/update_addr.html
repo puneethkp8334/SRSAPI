@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Address</title>
+</head>
+<body>
+<form method="POST" action="/update_addr">
+   <h3>Address Information</h3>
+        <input type="hidden" name="id" value="{{ address.id }}"/>
+        Name<br>
+        <input type="text" name="nm" value="{{ address.name }}"/>
+        <br/>
+        Address<br>
+        <textarea name="add">{{ address.addr }}</textarea><br>
+        City<br>
+        <input type="text" name="city" value="{{ address.city}}"/><br>
+        Pincode<br>
+        <input type="text" name="pin" value="{{ address.pin }}"/><br>
+        <input type="submit" value="submit"/><br>
+</form>
+</body>
+</html>

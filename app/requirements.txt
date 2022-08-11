@@ -1,0 +1,9 @@
+Flask
+flask_sqlalchemy
+mysqlclient
+pymysql
+flask-ext
+flask-restful
+db
+marshmallow==2.20.5
+marshmallow-sqlalchemy==0.18.0
